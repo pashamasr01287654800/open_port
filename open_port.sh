@@ -17,7 +17,7 @@ command_exists() {
 # Check if openssh and openssl are installed
 if ! command_exists openssh || ! command_exists openssl; then
   echo -e "${YELLOW}Installing required packages: openssh, openssl...${RESET}"
-  apt install openssh openssl -y
+  apt install openssh openssl
 fi
 
 # Prompt the user to choose between HTTP or TCP connection
@@ -29,16 +29,16 @@ while true; do
         echo -e "${BLUE}HTTP connection selected.${RESET}"
 
         # Prompt the user to enter the port and host details for HTTP
-        read -p "$(echo -e ${MAGENTA}Enter the port used in the payload  default: 80 :${RESET} ) " port
+        read -p "$(echo -e ${MAGENTA}Enter the port used in the payload • default: 80 :${RESET} ) " port
         port=${port:-80}
 
-        read -p "$(echo -e ${MAGENTA}Enter the host used in the payload  default: serveo.net :${RESET} ) " host
+        read -p "$(echo -e ${MAGENTA}Enter the host used in the payload • default: serveo.net :${RESET} ) " host
         host=${host:-serveo.net}
 
-        read -p "$(echo -e ${MAGENTA}Enter the host to listen  default: localhost :${RESET} ) " listen_host
+        read -p "$(echo -e ${MAGENTA}Enter the host to listen • default: localhost :${RESET} ) " listen_host
         listen_host=${listen_host:-localhost}
 
-        read -p "$(echo -e ${MAGENTA}Enter the port used for listening  default: 8080 :${RESET} ) " listen_port
+        read -p "$(echo -e ${MAGENTA}Enter the port used for listening • default: 8080 :${RESET} ) " listen_port
         listen_port=${listen_port:-8080}
 
         break  # Exit the loop if a valid choice is made
@@ -47,16 +47,16 @@ while true; do
         echo -e "${BLUE}TCP connection selected.${RESET}"
 
         # Prompt the user to enter the port and host details for TCP
-        read -p "$(echo -e ${MAGENTA}Enter the port used in the payload  default: 44444 :${RESET} ) " port
+        read -p "$(echo -e ${MAGENTA}Enter the port used in the payload • default: 44444 :${RESET} ) " port
         port=${port:-44444}
 
-        read -p "$(echo -e ${MAGENTA}Enter the host used in the payload  default: serveo.net :${RESET} ) " host
+        read -p "$(echo -e ${MAGENTA}Enter the host used in the payload • default: serveo.net :${RESET} ) " host
         host=${host:-serveo.net}
 
-        read -p "$(echo -e ${MAGENTA}Enter the host to listen  default: localhost :${RESET} ) " listen_host
+        read -p "$(echo -e ${MAGENTA}Enter the host to listen • default: localhost :${RESET} ) " listen_host
         listen_host=${listen_host:-localhost}
 
-        read -p "$(echo -e ${MAGENTA}Enter the port used for listening  default: 4444 :${RESET} ) " listen_port
+        read -p "$(echo -e ${MAGENTA}Enter the port used for listening • default: 4444 :${RESET} ) " listen_port
         listen_port=${listen_port:-4444}
 
         break  # Exit the loop if a valid choice is made
