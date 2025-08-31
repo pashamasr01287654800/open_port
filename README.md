@@ -179,17 +179,20 @@ Random subdomains by default (less predictable than serveo.net).
 5. Copy the generated public URL or connection info.
 
 
-
+|
 
 ---
-
-📊 Serveo.net vs Localhost.run
-
-Feature	serveo.net	localhost.run
-
-Subdomain	Customizable	Random generated
-HTTP Support	✅ Yes	✅ Yes
-TCP Support	✅ Yes	❌ Limited
+---------------------------------------------
+|📊 Serveo.net vs Localhost.run             |
+--------------------------------------------
+Feature	serveo.net	localhost.run           |
+---------------------------------------------
+| Subdomain	Customizable | Random generated |
+---------------------------------------------
+| HTTP Support	✅ Yes	 | ✅ Yes           |
+---------------------------------------------
+| TCP Support	  ✅ Yes	 | ❌ Limited       |
+---------------------------------------------
 Ease of use	Very simple	Very simple
 Stability	Good but sometimes busy	Reliable alternative
 
