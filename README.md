@@ -1,87 +1,204 @@
 # open_port.sh
 
-open_port.sh is a powerful and easy-to-use script designed for creating remote connections using HTTP or TCP protocols through port forwarding. This tool is ideal for penetration testers, network administrators, and developers who need to test or manage remote connections.
+Open Port Tunneling Script
 
-Features
+This project provides a Bash script that helps you easily expose your local services to the internet using reverse SSH tunneling.
+It supports two main tunneling services:
 
-Supports HTTP and TCP Protocols: Choose between HTTP or TCP connection modes depending on your needs.
+serveo.net
 
-Customizable Ports and Hosts: Define the payload port, host, listening host, and listening port with default values provided for convenience.
-
-Automatic Dependency Check: Ensures OpenSSH and OpenSSL are installed, installing them automatically if missing.
-
-Secure Port Forwarding: Uses SSH to create a remote port forwarding connection for easy remote access.
+localhost.run
 
 
-Usage
 
-1. Clone the repository:
+---
 
-git clone https://github.com/yourusername/open_port.git
+🚀 Features
+
+Choose between HTTP or TCP tunneling.
+
+Automatic installation of missing dependencies (openssh, openssl).
+
+Simple interactive prompts with color-coded messages.
+
+Supports both serveo.net and localhost.run.
+
+Clean and customizable setup.
+
+
+
+---
+
+⚙️ Requirements
+
+Linux (tested on Kali Linux, Ubuntu, Debian).
+
+Installed:
+
+openssh
+
+openssl
+
+
+
+The script installs missing packages automatically if they are not present.
+
+
+---
+
+📌 Usage
+
+1. Clone the repository
+
+git clone https://github.com/pashamasr01287654800/open_port.git
 cd open_port
 
-
-2. Make the script executable:
+2. Make script executable
 
 chmod +x open_port.sh
 
-
-3. Run the script:
+3. Run the script
 
 ./open_port.sh
 
 
-4. Follow the prompts to:
+---
 
-Choose between HTTP or TCP mode.
+🌐 Connection Modes
 
-Define the port and host details for the payload and listener.
+🔹 HTTP Mode
 
+When you choose HTTP, the script will ask:
 
-
-
-Example
-
-For an HTTP connection:
-
-Payload port: 80
-
-Host: serveo.net
-
-Listening host: localhost
-
-Listening port: 8080
+1. Port used in the payload (default: 80)
 
 
-For a TCP connection:
+2. Host used in the payload (default: serveo.net or nokey@localhost.run)
 
-Payload port: 44444
 
-Host: serveo.net
+3. Host to listen (default: localhost)
 
-Listening host: localhost
 
-Listening port: 4444
+4. Port for listening (default: 8080)
 
 
 
-The script will establish the connection and provide feedback on the selected options.
+Example (using serveo.net):
 
-Purpose
+ssh -R 80:localhost:8080 serveo.net
 
-This tool is designed for authorized use only. It can assist with:
+This will expose your local service running on port 8080 to the internet via:
 
-Remote testing and debugging.
-
-Setting up temporary remote access during penetration testing.
-
-Simulating network scenarios requiring port forwarding.
+https://your-username.serveo.net
 
 
-Contribution
+---
 
-Contributions are welcome! Feel free to open a pull request or report issues.
+🔹 TCP Mode
 
-Disclaimer
+When you choose TCP, the script will ask:
 
-open_port.sh is for ethical and authorized purposes only. Misuse of this script for illegal activities is strictly prohibited. The author is not responsible for any damage caused by its misuse.
+1. Port used in the payload (default: 44444)
+
+
+2. Host used in the payload (default: serveo.net)
+
+
+3. Host to listen (default: localhost)
+
+
+4. Port for listening (default: 4444)
+
+
+
+Example:
+
+ssh -R 44444:localhost:4444 serveo.net
+
+This creates a direct TCP tunnel accessible through the serveo server.
+
+
+---
+
+🌍 Tunneling Services
+
+✅ Serveo.net
+
+Easy to use, no signup required.
+
+Generates a subdomain like yourname.serveo.net.
+
+Supports both HTTP and TCP tunneling.
+
+
+Example:
+
+ssh -R 80:localhost:8080 serveo.net
+
+You can then access your local service via:
+
+https://yourname.serveo.net
+
+
+---
+
+✅ Localhost.run
+
+Also works without signup.
+
+Command usually looks like this:
+
+ssh -R 80:localhost:8080 nokey@localhost.run
+
+When you run it, you get a public HTTPS URL, like:
+
+https://random-subdomain-1234.host.run
+
+Useful as an alternative if serveo.net is down or blocked.
+
+Random subdomains by default (less predictable than serveo.net).
+
+
+
+---
+
+🔄 Example Workflow
+
+1. Run the script.
+
+
+2. Choose http or tcp.
+
+
+3. Pick tunneling service (serveo.net or localhost.run).
+
+
+4. Enter required ports and hostnames.
+
+
+5. Copy the generated public URL or connection info.
+
+
+
+
+---
+
+📊 Serveo.net vs Localhost.run
+
+Feature	serveo.net	localhost.run
+
+Subdomain	Customizable	Random generated
+HTTP Support	✅ Yes	✅ Yes
+TCP Support	✅ Yes	❌ Limited
+Ease of use	Very simple	Very simple
+Stability	Good but sometimes busy	Reliable alternative
+
+
+
+---
+
+⚠️ Disclaimer
+
+This script is intended for educational and development purposes only.
+Do not use it for malicious activity. The author is not responsible for any misuse.
+
